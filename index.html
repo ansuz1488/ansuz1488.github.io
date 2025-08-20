@@ -11,8 +11,8 @@
       margin: 0;
       padding: 0;
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      flex-direction: row;
+      align-items: flex-start;
       justify-content: center;
       min-height: 100vh;
     }
@@ -23,6 +23,7 @@
       box-shadow: 0 4px 24px rgba(0,0,0,0.08);
       text-align: center;
       max-width: 500px;
+      margin-right: 260px; /* space for sidebar */
     }
     h1 {
       margin-bottom: 1rem;
@@ -34,6 +35,68 @@
       color: #555;
       font-size: 1.2rem;
       margin-top: 0;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 240px;
+      height: 100vh;
+      background: #232323;
+      color: #eee;
+      box-shadow: -2px 0 12px rgba(0,0,0,0.12);
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      z-index: 10;
+    }
+    .sidebar h2 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #bdbdbd;
+      font-weight: 600;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
+    .sidebar li {
+      margin-bottom: 1rem;
+    }
+    .sidebar a {
+      color: #eee;
+      text-decoration: none;
+      font-size: 1.05rem;
+      transition: color 0.2s;
+    }
+    .sidebar a:hover {
+      color: #8ec07c;
+    }
+    @media (max-width: 800px) {
+      .container {
+        margin-right: 0;
+      }
+      .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+        padding: 1rem;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .sidebar ul {
+        display: flex;
+        flex-direction: row;
+        gap: 1.5rem;
+      }
+      .sidebar li {
+        margin-bottom: 0;
+      }
     }
   </style>
 </head>
@@ -53,5 +116,14 @@
       of monism, monotheism, and the endless consumption of a bipolar realm.
     </p>
   </div>
+  <aside class="sidebar">
+    <h2>Sidebar</h2>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Nature</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </aside>
 </body>
 </html>
